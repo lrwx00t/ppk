@@ -1,3 +1,4 @@
+use std::env;
 // use psutil::process::Process;
 use std::net::TcpStream;
 use std::process::Command;
@@ -44,7 +45,25 @@ fn kill_process(pid: u32) -> std::io::Result<()> {
 
 fn main() {
     let hostname = "localhost";
-    let port = 2222;
+    // let port = 2222;
+
+    // Get the command-line arguments
+    let args: Vec<String> = env::args().collect();
+
+    // Check that we have at least one argument (the program name)
+    if args.len() < 2 {
+        println!("Usage: {} <port>", args[0]);
+        return;
+    }
+
+    // Parse the port number from the argument
+    let port = match args[1].parse::<u16>() {
+        Ok(port) => port,
+        Err(_) => {
+            println!("Invalid port number: {}", args[1]);
+            return;
+        }
+    };
 
     match TcpStream::connect(format!("{}:{}", hostname, port)) {
         Ok(_) => println!("Port {} is listening.", port),
@@ -73,7 +92,7 @@ fn main() {
         return;
     }
     for p in processes {
-        let mut p = p.unwrap();
+        let p = p.unwrap();
         if p.pid() == pid as u32 {
             println!("Found matching command: {:?}", p);
         }
