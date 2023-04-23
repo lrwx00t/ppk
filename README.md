@@ -1,6 +1,8 @@
-# killport
+# ppk
 
-Find the port, and kill it!
+A naive process assassin 🥷
+
+Find the port, process and kill it!
 
 ## Usage
 
