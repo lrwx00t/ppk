@@ -4,6 +4,18 @@ Find the port, and kill it!
 
 ## Usage
 
+### Crate Installation
+```
+❯ cargo install ppk
+
+❯ ppk
+Usage: ppk <port>
+
+❯ sudo ppk 2222
+```
+
+### Run from source
+
 ```bash
 # from source
 ❯ sudo cargo run -- 2222
