@@ -1,6 +1,6 @@
 [package]
 name = "ppk"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["lrwx00t"]
 description = "find the port, and kill its process!"
