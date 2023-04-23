@@ -2,7 +2,7 @@
 name = "killport"
 version = "0.1.0"
 edition = "2021"
-authors = ["lrwx00t"]
+authors = ["lrwx00t", "lrwx00t@gmail.com"]
 description = "find the port, and kill its process!"
 license = "MIT"
 
